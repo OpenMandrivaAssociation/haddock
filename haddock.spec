@@ -7,7 +7,6 @@ License: BSD-like
 Group: Development/Other
 Source: http://www.haskell.org/haddock/haddock-%{version}-src.tar.bz2
 URL: http://www.haskell.org/haddock/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires: ghc
 BuildRequires: happy
 BuildRequires: alex
