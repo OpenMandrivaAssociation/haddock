@@ -2,7 +2,7 @@
 Summary: Haddock documentation tool for annotated Haskell source code
 Name: haddock
 Version: 0.8
-Release: %mkrel 1
+Release: %mkrel 2
 License: BSD-like
 Group: Development/Other
 Source: http://www.haskell.org/haddock/haddock-%{version}-src.tar.bz2
