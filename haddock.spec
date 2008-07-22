@@ -2,13 +2,13 @@
 Summary: Haddock documentation tool for annotated Haskell source code
 Name: haddock
 Version: 0.8
-Release: %mkrel 2
+Release: %mkrel 3
 License: BSD-like
 Group: Development/Other
 Source: http://www.haskell.org/haddock/haddock-%{version}-src.tar.bz2
 URL: http://www.haskell.org/haddock/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
-BuildRequires: ghc
+BuildRequires: ghc hugs98
 BuildRequires: happy
 BuildRequires: alex
 BuildRequires: libxslt-proc docbook-style-xsl
