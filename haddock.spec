@@ -1,17 +1,19 @@
+Summary:	Haddock documentation tool for annotated Haskell source code
+Name:		haddock
+Version:	0.9
+Release:	%{mkrel 1}
+License:	BSD
+Group:		Development/Other
+Source0:	http://www.haskell.org/%{name}/%{name}-%{version}.tar.gz
+URL:		http://www.haskell.org/haddock/
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
+BuildRequires:	ghc
+BuildRequires:	hugs98
+BuildRequires:	happy
+BuildRequires:	alex
+BuildRequires:	libxslt-proc
+BuildRequires:	docbook-style-xsl
 
-Summary: Haddock documentation tool for annotated Haskell source code
-Name: haddock
-Version: 0.8
-Release: %mkrel 3
-License: BSD-like
-Group: Development/Other
-Source: http://www.haskell.org/haddock/haddock-%{version}-src.tar.bz2
-URL: http://www.haskell.org/haddock/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root
-BuildRequires: ghc hugs98
-BuildRequires: happy
-BuildRequires: alex
-BuildRequires: libxslt-proc docbook-style-xsl
 %description
 Haddock is a tool for automatically generating documentation from
 annotated Haskell source code. It is primary intended for documenting
@@ -31,7 +33,7 @@ browser to view it properly (Mozilla, Konqueror, Opera, and IE 6
 should all be ok).
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q 
 
 %build
 runhaskell Setup.lhs configure --prefix=%{_prefix}
@@ -41,13 +43,12 @@ test -f configure || autoreconf
 ./configure
 make html
 
-
 %install
-rm -rf ${RPM_BUILD_ROOT}
-runhaskell Setup.lhs copy --destdir=${RPM_BUILD_ROOT}
+rm -rf %{buildroot}
+runhaskell Setup.lhs copy --destdir=%{buildroot}
 
 %clean
-rm -rf ${RPM_BUILD_ROOT}
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
