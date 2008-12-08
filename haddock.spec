@@ -1,6 +1,6 @@
 Summary:	Haddock documentation tool for annotated Haskell source code
 Name:		haddock
-Version:	0.9
+Version:	2.4.1
 Release:	%{mkrel 1}
 License:	BSD
 Group:		Development/Other
@@ -8,11 +8,12 @@ Source0:	http://www.haskell.org/%{name}/%{name}-%{version}.tar.gz
 URL:		http://www.haskell.org/haddock/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires:	ghc
-BuildRequires:	hugs98
+# BuildRequires:	hugs98
 BuildRequires:	happy
 BuildRequires:	alex
 BuildRequires:	libxslt-proc
 BuildRequires:	docbook-style-xsl
+BuildRequires:  ghc-paths
 
 %description
 Haddock is a tool for automatically generating documentation from
@@ -47,12 +48,15 @@ make html
 rm -rf %{buildroot}
 runhaskell Setup.lhs copy --destdir=%{buildroot}
 
+rm -fr %{buildroot}%{_datadir}/doc
+
 %clean
 rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
 %doc doc/haddock/*
+%{_libdir}/*
 %{_datadir}/*
 %{_bindir}/haddock
 
