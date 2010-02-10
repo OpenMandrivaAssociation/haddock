@@ -1,7 +1,7 @@
 Summary:	Haddock documentation tool for annotated Haskell source code
 Name:		haddock
 Version:	2.5.0
-Release:	%{mkrel 1}
+Release:	%{mkrel 2}
 License:	BSD
 Group:		Development/Other
 Source0:	http://www.haskell.org/%{name}/%{name}-%{version}.tar.gz
