@@ -1,7 +1,7 @@
 %define _cabal_setup Setup.lhs
 %define _no_haddock 1
 
-Summary:	Haddock documentation tool for annotated Haskell source code
+Summary:	Documentation tool for annotated Haskell source code
 Name:		haddock
 Version:	2.13.1
 Release:	7
