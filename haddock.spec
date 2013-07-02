@@ -4,7 +4,7 @@
 Summary:	Documentation tool for annotated Haskell source code
 Name:		haddock
 Version:	2.13.1
-Release:	7
+Release:	8
 License:	BSD
 Group:		Development/Other
 Source0:	http://hackage.haskell.org/packages/archive/%{name}/${version}/%{name}-%{version}.tar.gz
@@ -60,7 +60,6 @@ make html
 
 
 %files
-%defattr(-,root,root)
 %doc %{_docdir}/%{name}-%{version}
 %doc doc/haddock/*
 %{_datadir}/%{name}-%{version}/html
