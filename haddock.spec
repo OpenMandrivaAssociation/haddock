@@ -1,28 +1,27 @@
-%define _cabal_setup Setup.lhs
+#define _cabal_setup Setup.lhs
 %define _no_haddock 1
 
-Summary:	Documentation tool for annotated Haskell source code
+Summary:	Haddock documentation tool for annotated Haskell source code
 Name:		haddock
-Version:	2.13.1
-Release:	8
+Version:	2.13.2
+Release:	1
 License:	BSD
 Group:		Development/Other
+Url:		http://www.haskell.org/haddock/
 Source0:	http://hackage.haskell.org/packages/archive/%{name}/${version}/%{name}-%{version}.tar.gz
-URL:		http://www.haskell.org/haddock/
 BuildRequires:	ghc-devel
-BuildRequires:	happy
 BuildRequires:	alex
-BuildRequires:	libxslt-proc
 BuildRequires:	docbook-style-xsl
-BuildRequires:  ghc-paths
-buildrequires:	haskell-macros
-buildrequires:	ghc-xhtml
-buildrequires:	pkgconfig(libffi)
-requires:				haskell(ghc-paths)
-requires:				haskell(xhtml)
-requires:		ghc
-requires(post):		ghc
-requires(preun):	ghc
+BuildRequires:	happy
+BuildRequires:	xsltproc
+BuildRequires:	haskell-macros
+BuildRequires:	haskell(ghc-paths)
+BuildRequires:	haskell(xhtml)
+BuildRequires:	pkgconfig(libffi)
+Requires:	ghc
+Requires:	haskell(ghc-paths)
+Requires:	haskell(xhtml)
+Requires(post,preun):	ghc
 
 %description
 Haddock is a tool for automatically generating documentation from
@@ -42,8 +41,19 @@ The generated HTML uses stylesheets, so you need a fairly up-to-date
 browser to view it properly (Mozilla, Konqueror, Opera, and IE 6
 should all be ok).
 
+%files
+%doc %{_docdir}/%{name}-%{version}
+%doc doc/haddock/*
+%{_datadir}/%{name}-%{version}/html
+%{_datadir}/%{name}-%{version}/latex
+%{_libdir}/%{name}-%{version}/*
+%{_bindir}/haddock
+%{_cabal_rpm_deps_dir}
+
+#----------------------------------------------------------------------------
+
 %prep
-%setup -q 
+%setup -q
 
 %build
 %_cabal_build
@@ -57,56 +67,3 @@ make html
 %_cabal_install
 %_cabal_rpm_gen_deps
 %_cabal_scriptlets
-
-
-%files
-%doc %{_docdir}/%{name}-%{version}
-%doc doc/haddock/*
-%{_datadir}/%{name}-%{version}/html
-%{_datadir}/%{name}-%{version}/latex
-%{_libdir}/%{name}-%{version}/*
-%{_bindir}/haddock
-%_cabal_rpm_deps_dir
-#% _cabal_haddoc_files
-
-
-
-
-%changelog
-* Wed Feb 10 2010 Funda Wang <fwang@mandriva.org> 2.5.0-2mdv2010.1
-+ Revision: 503554
-- rebuild for new gmp
-
-* Sun Nov 08 2009 Olivier Thauvin <nanardon@mandriva.org> 2.5.0-1mdv2010.1
-+ Revision: 463096
-- 2.5.0
-
-  + Thierry Vignaud <tv@mandriva.org>
-    - rebuild
-
-* Mon Dec 08 2008 Olivier Thauvin <nanardon@mandriva.org> 2.4.1-1mdv2009.1
-+ Revision: 311949
-- 2.4.1
-
-* Thu Aug 07 2008 Adam Williamson <awilliamson@mandriva.org> 0.9-1mdv2009.0
-+ Revision: 267126
-- new release 0.9
-- clean spec
-
-  + Thierry Vignaud <tv@mandriva.org>
-    - rebuild
-    - rebuild
-    - kill re-definition of %%buildroot on Pixel's request
-
-  + Olivier Blin <oblin@mandriva.com>
-    - restore BuildRoot
-
-
-* Mon Dec 11 2006 Michael Scherer <misc@mandriva.org> 0.8-1mdv2007.0
-+ Revision: 94821
-- also add stylesheet
-- Add libxslt-proc, as haddock fail with "make: stringparam: Command not found"
-- add missing source
-- upgrade to 0.8
-- Import haddock
-
