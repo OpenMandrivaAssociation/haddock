@@ -1,4 +1,4 @@
-#define _cabal_setup Setup.lhs
+%define _cabal_setup Setup.lhs
 %define _no_haddock 1
 
 Summary:	Haddock documentation tool for annotated Haskell source code
