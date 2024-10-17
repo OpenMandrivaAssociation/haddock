@@ -7,7 +7,7 @@ Version:	2.13.2
 Release:	2
 License:	BSD
 Group:		Development/Other
-Url:		http://www.haskell.org/haddock/
+Url:		https://www.haskell.org/haddock/
 Source0:	http://hackage.haskell.org/packages/archive/%{name}/${version}/%{name}-%{version}.tar.gz
 BuildRequires:	ghc-devel
 BuildRequires:	alex
