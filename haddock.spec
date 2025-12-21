@@ -9,6 +9,11 @@ License:	BSD
 Group:		Development/Other
 Url:		https://www.haskell.org/haddock/
 Source0:	http://hackage.haskell.org/packages/archive/%{name}/${version}/%{name}-%{version}.tar.gz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	ghc-devel
 BuildRequires:	alex
 BuildRequires:	docbook-style-xsl
